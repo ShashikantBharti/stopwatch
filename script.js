@@ -9,57 +9,43 @@ const start = document.querySelector('.start')
 
 let milisecIntervalId, secIntervalId, MinsIntervalId, hrsIntervalId
 
-function addZeroMiliSec(x) {
+function addZero(x) {
     if (x < 10) return '00' + x
     if (x < 100) return '0' + x
     return x
 }
 
-function addZero(x) {
-    if (x < 10) return '0' + x
-    return x
-}
-
 function startStopWatch(){
-     // Start Miliseconds counter
-     let i = parseInt(milisec.innerText);
-     milisecIntervalId = setInterval(() => {
-         if(i==1000) {
-             i = 1
-         }
-         milisec.innerText = addZeroMiliSec(i);
-         i += 1
-     }, 1)
+    // Start Miliseconds counter
+    let ms = parseInt(milisec.innerText)
+    s = parseInt(sec.innerText)
+    m = parseInt(mins.innerText)
+    h = parseInt(hrs.innerText)
+
+    IntervalId = setInterval(() => {
+
+        if(ms >= 999) {
+            ms = 0
+            s++
+        }
+        if (s == 59) {
+            s = 0
+            m++
+        }
+        if (m == 59) {
+            m = 0
+            h++
+        }
+        
+        ms += 11
+
+        milisec.innerText = addZero(ms)
+        sec.innerText = (s < 10) ? '0' + s : s
+        mins.innerText = (m < 10) ? '0' + m : m
+        hrs.innerText = (h < 10) ? '0' + h : h
+        
+    }, 11);
  
-     // Start Seconds Counter
-     let j = parseInt(sec.innerText);
-     secIntervalId = setInterval(() => {
-         if (j == 60) {
-             j = 1
-         }
-         sec.innerText = addZero(j);
-         j += 1
-     }, 1000)
- 
-     // Start Minuts Couter
-     k = parseInt(mins.innerText);
-     MinsIntervalId = setInterval(() => {
-         if (k == 60){
-             k == 1
-         }
-         mins.innerText = addZero(k)
-         k += 1
-     }, 60000)
- 
-     // Start Hours Couter
-     l = parseInt(mins.innerText);
-     hrsIntervalId = setInterval(() => {
-         if (l == 60){
-             l == 1
-         }
-         mins.innerText = addZero(l)
-         l += 1
-     }, 3600000)
 }
 
 
@@ -85,11 +71,7 @@ pause.addEventListener('click', (e) => {
     }
         
     // Clear setInterval function
-    clearInterval(milisecIntervalId)
-    clearInterval(secIntervalId)
-    clearInterval(MinsIntervalId)
-    clearInterval(hrsIntervalId)
-
+    clearInterval(IntervalId)
 
     // Hide and Show Relevant Button
     pause.style.display = 'none'
@@ -103,17 +85,14 @@ reset.addEventListener('click', (e) => {
     e.preventDefault()
     
     // Clear setInterval function
-    clearInterval(milisecIntervalId)
-    clearInterval(secIntervalId)
-    clearInterval(MinsIntervalId)
-    clearInterval(hrsIntervalId)
+    clearInterval(IntervalId)
 
     start.innerText = 'Start'
 
     // Reset Values
     hrs.innerText = '00'
     mins.innerText = '00'
-    sec.innerText = '00'
+    sec.innerText = '00' 
     milisec.innerText = '000'
 
     // Hide and Show relevant buttons 

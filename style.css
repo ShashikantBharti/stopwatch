@@ -34,6 +34,10 @@ p {
 
 p span {
     margin-left: 0.5em;
+    display: inline-block;
+    width: 1.3em;
+    text-align: center;
+    /* background-color: red; */
 }
 
 button {
@@ -81,7 +85,7 @@ button.reset:hover {
     }
 
     p span {
-        font-size: 5em;
+        font-size: 2em;
     }
     button {
         padding: 0.5em 1.5em;
@@ -103,7 +107,7 @@ button.reset:hover {
     }
 
     p span {
-        font-size: 4em;
+        font-size: 2em;
     }
     button {
         padding: 0.8em 2em;
@@ -128,7 +132,7 @@ button.reset:hover {
     }
 
     p span {
-        font-size: 6em;
+        font-size: 3em;
     }
     button {
         margin-top: 2em;
@@ -148,7 +152,7 @@ button.reset:hover {
     }
 
     p span {
-        font-size: 10em;
+        font-size: 5em;
     }
     button {
         padding: 1em 3em;
