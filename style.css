@@ -86,6 +86,7 @@ button.reset:hover {
         font-size: 45px;
         margin: 50px 0;
         margin-left: 10px;
+        width: 50px;
     }
 
     button {
@@ -112,6 +113,7 @@ button.reset:hover {
         font-size: 60px;
         margin: 15px 0;
         margin-left: 10px;
+        width: 100px;
     }
     button {
         padding: 10px 20px;
@@ -135,6 +137,7 @@ button.reset:hover {
     p span {
         font-size: 90px;
         margin-left: 15px;
+        width: 100px;
     }
 
     button {
@@ -157,6 +160,7 @@ button.reset:hover {
     p span {
         font-size: 120px;
         margin-left: 15px;
+        width: 120px;
     }
     button {
         margin-top: 30px;
